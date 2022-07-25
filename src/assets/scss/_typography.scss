@@ -1,0 +1,25 @@
+@import "_mixins.scss";
+@import "_grid.scss";
+
+body {
+  font-family: Montserrat, OpenSans;
+  margin: 0;
+  background-color: $background;
+  font-size: 12px;
+  @include respond-to("md") {
+    font-size: 18px;
+  }
+
+
+  h1 {
+    margin: 0;
+  }
+
+  li {
+    list-style-type: none;
+  }
+
+  p {
+    margin: 0;
+  }
+}

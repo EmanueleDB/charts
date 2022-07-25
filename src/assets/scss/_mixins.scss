@@ -1,0 +1,42 @@
+@import "_fonts.scss";
+
+//Fonts
+@mixin font-montserrat {
+  font-family: Montserrat, sans-serif;
+}
+
+//Bold
+@mixin font-montserrat-bold {
+  @include font-montserrat;
+  font-weight: 700;
+}
+//SemiBold
+@mixin font-montserrat-semiBold {
+  @include font-montserrat;
+  font-weight: 600;
+}
+//Medium
+@mixin font-montserrat-medium {
+  @include font-montserrat;
+  font-weight: 500;
+}
+//Medium Italic
+@mixin font-montserrat-mediumItalic {
+  @include font-montserrat;
+  font-style: italic;
+  font-weight: 500;
+}
+
+@mixin font-openSans {
+  font-family: OpenSans, sans-serif;
+}
+
+//Regular
+@mixin font-openSans-regular {
+  @include font-openSans;
+  font-weight: 400;
+} //SemiBold
+@mixin font-openSans-semiBold {
+  @include font-openSans;
+  font-weight: 600;
+} //Medium
