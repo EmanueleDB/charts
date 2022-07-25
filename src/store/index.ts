@@ -1,12 +1,21 @@
-import Vue from "vue";
-import Vuex from "vuex";
+import Vue from "vue"
+import Vuex from "vuex"
+import State from "../models/state"
 
-Vue.use(Vuex);
+Vue.use(Vuex)
+
+const state: State = {
+  testState: {},
+}
 
 export default new Vuex.Store({
-  state: {},
+  state,
   getters: {},
-  mutations: {},
-  actions: {},
+  mutations: {
+    // testMutation(state: any: payload: something){}
+  },
+  actions: {
+    // testAction({ commit, state }, payload) {},
+  },
   modules: {},
-});
+})
