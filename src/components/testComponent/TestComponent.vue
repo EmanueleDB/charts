@@ -1,6 +1,9 @@
 <template>
-  <div>Home</div>
+  <div>
+    <b-alert variant="success" show>Success Alert</b-alert>
+  </div>
 </template>
+
 <script lang="ts">
 import Vue from "vue"
 export default Vue.extend({
