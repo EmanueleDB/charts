@@ -2,14 +2,13 @@
 @import "_grid.scss";
 
 body {
-  font-family: Montserrat, OpenSans;
+  font-family: Montserrat, OpenSans !important;
   margin: 0;
   background-color: $background;
   font-size: 12px;
   @include respond-to("md") {
     font-size: 18px;
   }
-
 
   h1 {
     margin: 0;
