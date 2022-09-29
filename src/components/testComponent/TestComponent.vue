@@ -1,6 +1,8 @@
 <template>
-  <div>
-    <b-alert variant="success" show>Success Alert</b-alert>
+  <div class="row">
+    <div class="col-6">
+      <b-alert variant="success" show>Success Alert</b-alert>
+    </div>
   </div>
 </template>
 
