@@ -1,7 +1,7 @@
-import Vue from "vue"
-import Vuex from "vuex"
+import Vue from 'vue'
+import Vuex from 'vuex'
 // import createPersistedState from "vuex-persistedstate"
-import State from "../models/state"
+import State from '../models/state'
 
 Vue.use(Vuex)
 
