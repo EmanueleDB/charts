@@ -2,17 +2,17 @@
   <div class="row">
     <div class="col-6">
       <div class="container">
-        <b-alert variant="success" show>Success Alert</b-alert>
+        <div class="alert alert-success show">Success Alert</div>
         <p>test</p>
-        <FontAwesomeIcon icon="fa-solid fa-language" />
       </div>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import Vue from 'vue'
-export default Vue.extend({
+import { defineComponent } from 'vue'
+
+export default defineComponent({
   name: 'TestComponent',
 })
 </script>
