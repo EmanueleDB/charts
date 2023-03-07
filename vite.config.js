@@ -6,6 +6,14 @@ export default defineConfig({
   plugins: [vue()],
   transpileDependencies: true,
   lintOnSave: false,
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: '@import "@/assets/scss/_global.scss";',
+      },
+    },
+  },
+
   server: {
     port: 8080,
   },
