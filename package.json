@@ -6,7 +6,7 @@
     "serve": "vite --open",
     "build": "vite build --out-dir dist",
     "lint": "eslint src",
-    "lint:fix": "eslint src --fix"
+    "fix": "eslint src --fix"
   },
   "dependencies": {
     "@popperjs/core": "^2.11.6",

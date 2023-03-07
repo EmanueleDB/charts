@@ -7,6 +7,7 @@ const routes: Array<RouteRecordRaw> = [
     name: 'home',
     component: testComponent,
   },
+
   {
     path: '/about',
     name: 'about',
