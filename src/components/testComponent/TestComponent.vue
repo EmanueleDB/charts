@@ -4,7 +4,12 @@
       <div class="container">
         <div class="text-center">
           <div class="text-center my-3">
-            <b-progress :value="35" :max="100" show-progress animated></b-progress>
+            <b-progress
+              :value="50"
+              :max="100"
+              show-progress
+              animated
+            ></b-progress>
           </div>
         </div>
       </div>

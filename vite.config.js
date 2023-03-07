@@ -4,6 +4,8 @@ import path from 'path'
 
 export default defineConfig({
   plugins: [vue()],
+  transpileDependencies: true,
+  lintOnSave: false,
   server: {
     port: 8080,
   },
