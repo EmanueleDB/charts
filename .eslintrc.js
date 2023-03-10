@@ -5,7 +5,7 @@ module.exports = {
   },
   plugins: ['prettier'],
   extends: [
-    'plugin:vue/essential',
+    'plugin:vue/vue3-strongly-recommended',
     'eslint:recommended',
     'prettier',
     '@vue/typescript/recommended',
