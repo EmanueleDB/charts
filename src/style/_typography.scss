@@ -4,7 +4,7 @@
 body {
   font-family: Montserrat, OpenSans !important;
   margin: 0;
-  background-color: $background;
+  background-color: var(--background);
   font-size: 12px;
   @include respond-to("md") {
     font-size: 18px;
