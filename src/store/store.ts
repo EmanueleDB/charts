@@ -1,19 +1,10 @@
-import { createStore } from 'vuex'
-import State from '../models/state'
+import State from '../types/state'
+import { defineStore } from 'pinia'
 
-const state: State = {
-  testState: {},
-}
+export const useStore = defineStore('store', {
+  state: (): State => ({
+    testState: {},
+  }),
 
-export default createStore({
-  // plugins: [createPersistedState()],
-  state,
-  getters: {},
-  mutations: {
-    // testMutation(state: any: payload: something){}
-  },
-  actions: {
-    // testAction({ commit, state }, payload) {},
-  },
-  modules: {},
+  actions: {},
 })
