@@ -1,9 +1,16 @@
 @import "@/style/_mixins.scss";
 @import "@/style/_grid.scss";
 
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow-x: hidden;
+  background-color: aquamarine !important;
+}
+
 body {
   font-family: Montserrat, OpenSans !important;
-  margin: 0;
   background-color: var(--background);
   font-size: 12px;
   @include respond-to("md") {

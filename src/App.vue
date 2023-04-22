@@ -1,14 +1,11 @@
 <template>
-  <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>
-    <router-view />
-  </div>
+  <Layout />
 </template>
 <script lang="ts">
 import { defineComponent } from 'vue'
+import Layout from '@/layouts/Layout.vue'
 
-export default defineComponent({})
+export default defineComponent({
+  components: { Layout },
+})
 </script>
