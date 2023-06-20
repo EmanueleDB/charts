@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 
-interface Asset {
+export interface Asset {
   id: number
   name: string
   parentId: number | null
@@ -46,8 +46,6 @@ export const useStore = defineStore('store', {
 
       // Find the root assets (parentId === null)
       this.assets = assets.filter((asset) => asset.parentId === null)
-
-      console.log(this.assets)
     },
   },
 })

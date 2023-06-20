@@ -5,7 +5,7 @@
     </header>
     <main ref="main">
       <div class="row h-100">
-        <div class="col-6">
+        <div class="col-auto">
           <Sidebar />
         </div>
         <div class="col">

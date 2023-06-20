@@ -7,6 +7,7 @@
 <script lang="ts">
 import TreeView from '@/components/TreeView/TreeView.vue'
 import { useStore } from '@/store/store'
+import { Asset } from '@/store/store'
 
 export default {
   name: 'Sidebar',
@@ -15,7 +16,7 @@ export default {
   },
   data() {
     return {
-      assets: [],
+      assets: [] as Asset[],
     }
   },
   async mounted() {
@@ -23,8 +24,7 @@ export default {
     this.assets = useStore().assets
   },
   methods: {
-    handleExpand(asset) {
-      // Handle expanding/collapsing the asset
+    handleExpand(asset: { expanded: boolean }) {
       asset.expanded = !asset.expanded
     },
   },
@@ -35,6 +35,8 @@ export default {
 .sidebar {
   width: 100%;
   height: 100%;
-  background: red;
+  background: var(--sidebar-background);
+  color: var(--white);
+  padding-top: 1rem;
 }
 </style>

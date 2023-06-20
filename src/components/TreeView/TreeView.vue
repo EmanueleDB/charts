@@ -1,8 +1,10 @@
 <template>
-  <ul>
+  <ul class="tree">
     <li v-for="asset in assets" :key="asset.id">
-      <span @click="expand(asset)">{{ asset.expanded ? '▼' : '►' }}</span>
-      <span>{{ asset.name }}</span>
+      <span class="tree__arrow" @click="expand(asset)">{{
+        asset.expanded ? '▼' : '►'
+      }}</span>
+      <span class="tree__name" @click="setData">{{ asset.name }}</span>
       <TreeView
         v-if="asset.expanded"
         :assets="asset.children"
@@ -26,6 +28,21 @@ export default {
     expand(asset) {
       this.$emit('expand', asset)
     },
+    setData() {
+      console.log('yes')
+    },
   },
 }
 </script>
+
+<style lang="scss">
+.tree {
+  &__name {
+    margin-left: 1rem;
+    cursor: pointer;
+  }
+  &__arrow {
+    cursor: pointer;
+  }
+}
+</style>
