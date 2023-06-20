@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+import axios from 'axios'
 
 export interface Asset {
   id: number
@@ -7,9 +8,16 @@ export interface Asset {
   children?: Asset[]
 }
 
+interface Measurement {
+  [date: string]: number
+}
+
 export const useStore = defineStore('store', {
   state: () => ({
     assets: [] as Asset[],
+    measurements: {} as Record<number, Measurement>,
+    formattedDates: [] as Array<string>,
+    dataSets: [] as number[],
   }),
 
   actions: {
@@ -46,6 +54,39 @@ export const useStore = defineStore('store', {
 
       // Find the root assets (parentId === null)
       this.assets = assets.filter((asset) => asset.parentId === null)
+    },
+    async fetchMeasurements(assetId: number) {
+      const response = await axios.get('/data/measurements.json')
+      if (response && response.data) {
+        const measurementsData = response.data.find(
+          (item: { assetId: number }) => item.assetId === assetId
+        )
+        this.measurements[assetId] = measurementsData
+          ? measurementsData.measurements
+          : null
+      }
+    },
+    getFormattedDates(measurements: Measurement) {
+      const dates = Object.keys(measurements)
+      return dates.map((date) => {
+        const formattedDate = new Date(date).toLocaleString('en-US', {
+          month: 'short',
+          year: 'numeric',
+        })
+        this.formattedDates.push(formattedDate)
+      })
+    },
+    getDataSets(assetId: number) {
+      const measurements = this.measurements[assetId]
+      if (measurements) {
+        this.dataSets = Object.values(measurements)
+      } else {
+        this.dataSets = []
+      }
+    },
+    reset() {
+      this.dataSets = []
+      this.formattedDates = []
     },
   },
 })

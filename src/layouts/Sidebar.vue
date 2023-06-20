@@ -8,8 +8,9 @@
 import TreeView from '@/components/TreeView/TreeView.vue'
 import { useStore } from '@/store/store'
 import { Asset } from '@/store/store'
+import { defineComponent } from 'vue'
 
-export default {
+export default defineComponent({
   name: 'Sidebar',
   components: {
     TreeView,
@@ -24,11 +25,22 @@ export default {
     this.assets = useStore().assets
   },
   methods: {
-    handleExpand(asset: { expanded: boolean }) {
+    async handleExpand(asset: { id: number; expanded: boolean }) {
       asset.expanded = !asset.expanded
+
+      if (asset.expanded) {
+        useStore().reset()
+        await useStore().fetchMeasurements(asset.id)
+        const measurements = useStore().measurements[asset.id]
+
+        if (measurements) {
+          useStore().getFormattedDates(measurements)
+          useStore().getDataSets(asset.id)
+        }
+      }
     },
   },
-}
+})
 </script>
 
 <style lang="scss">

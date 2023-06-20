@@ -5,11 +5,11 @@
     </header>
     <main ref="main">
       <div class="row h-100">
-        <div class="col-auto">
+        <div class="col-4">
           <Sidebar />
         </div>
-        <div class="col">
-          <testComponent />
+        <div class="col-8">
+          <Graph />
         </div>
       </div>
     </main>
@@ -19,11 +19,12 @@
 <script lang="ts">
 import Sidebar from '@/layouts/Sidebar.vue'
 import Navigation from '@/layouts/Navigation.vue'
-import testComponent from '@/components/Graph/Graph.vue'
+import Graph from '@/components/Graph/Graph.vue'
+import { defineComponent } from 'vue'
 
-export default {
-  components: { Navigation, Sidebar, testComponent },
-}
+export default defineComponent({
+  components: { Navigation, Sidebar, Graph },
+})
 </script>
 
 <style scoped lang="scss">
