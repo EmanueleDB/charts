@@ -23,23 +23,6 @@ import testComponent from '@/components/Graph/Graph.vue'
 
 export default {
   components: { Navigation, Sidebar, testComponent },
-
-  // mounted() {
-  //   this.adjustMainHeight()
-  //   window.addEventListener('resize', this.adjustMainHeight)
-  // },
-  // beforeUnmount() {
-  //   window.removeEventListener('resize', this.adjustMainHeight)
-  // },
-  // methods: {
-  //   adjustMainHeight() {
-  //     const headerHeight = this.$refs.header.clientHeight
-  //     const footerHeight = this.$el.querySelector('footer').clientHeight
-  //     this.$refs.main.style.minHeight = `calc(100vh - ${
-  //       headerHeight + footerHeight
-  //     }px)`
-  //   },
-  // },
 }
 </script>
 
