@@ -7,15 +7,17 @@
 <script lang="ts">
 import TreeView from '@/components/TreeView/TreeView.vue'
 import { useStore } from '@/store/store'
+import { Asset } from '@/store/store'
+import { defineComponent } from 'vue'
 
-export default {
+export default defineComponent({
   name: 'Sidebar',
   components: {
     TreeView,
   },
   data() {
     return {
-      assets: [],
+      assets: [] as Asset[],
     }
   },
   async mounted() {
@@ -23,18 +25,29 @@ export default {
     this.assets = useStore().assets
   },
   methods: {
-    handleExpand(asset) {
-      // Handle expanding/collapsing the asset
+    async handleExpand(asset: { id: number; expanded: boolean; name: string }) {
+      useStore().setSelectedAsset(asset.name)
       asset.expanded = !asset.expanded
+
+      useStore().reset()
+      await useStore().fetchMeasurements(asset.id)
+      const measurements = useStore().measurements[asset.id]
+
+      if (measurements) {
+        useStore().getFormattedDates(measurements)
+        useStore().getDataSets(asset.id)
+      }
     },
   },
-}
+})
 </script>
 
 <style lang="scss">
 .sidebar {
   width: 100%;
   height: 100%;
-  background: red;
+  background: var(--sidebar-background);
+  color: var(--white);
+  padding-top: 1rem;
 }
 </style>

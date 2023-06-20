@@ -23,10 +23,5 @@
     "id": 4,
     "name": "Asset 4",
     "parentId": 3
-  },
-  {
-    "id": 5,
-    "name": "Asset 5",
-    "parentId": 2
   }
 ]
