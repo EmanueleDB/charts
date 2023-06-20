@@ -18,9 +18,13 @@ export const useStore = defineStore('store', {
     measurements: {} as Record<number, Measurement>,
     formattedDates: [] as Array<string>,
     dataSets: [] as number[],
+    assetName: '',
   }),
 
   actions: {
+    setSelectedAsset(asset: string) {
+      this.assetName = asset
+    },
     async fetchAssets() {
       const response = await fetch('/data/assets.json')
       const data = await response.json()

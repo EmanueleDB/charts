@@ -25,18 +25,17 @@ export default defineComponent({
     this.assets = useStore().assets
   },
   methods: {
-    async handleExpand(asset: { id: number; expanded: boolean }) {
+    async handleExpand(asset: { id: number; expanded: boolean; name: string }) {
+      useStore().setSelectedAsset(asset.name)
       asset.expanded = !asset.expanded
 
-      if (asset.expanded) {
-        useStore().reset()
-        await useStore().fetchMeasurements(asset.id)
-        const measurements = useStore().measurements[asset.id]
+      useStore().reset()
+      await useStore().fetchMeasurements(asset.id)
+      const measurements = useStore().measurements[asset.id]
 
-        if (measurements) {
-          useStore().getFormattedDates(measurements)
-          useStore().getDataSets(asset.id)
-        }
+      if (measurements) {
+        useStore().getFormattedDates(measurements)
+        useStore().getDataSets(asset.id)
       }
     },
   },

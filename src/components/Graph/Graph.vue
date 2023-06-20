@@ -1,7 +1,21 @@
 <template>
   <div class="m-3">
-    <div>{{assetGraph}}</div>
-    <Line :data="assetGraph" :options="options" />
+    <div
+      v-if="assetGraph.labels && assetGraph.labels.length === 0"
+      class="text-center"
+    >
+      <h3>No asset selected</h3>
+      <p>You can select an asset in the menu on the left</p>
+    </div>
+    <div v-else>
+      <input
+        v-b-tooltip.hover
+        title="Change color"
+        type="color"
+        v-model="color"
+      />
+      <Line :data="assetGraph" :options="options" />
+    </div>
   </div>
 </template>
 
@@ -33,7 +47,7 @@ ChartJS.register(
 )
 
 interface ChartData {
-  labels?: string[] | string[][]
+  labels?: string[]
   datasets?: ChartDataset[]
 }
 
@@ -47,18 +61,19 @@ export default defineComponent({
       options: {
         responsive: true,
       },
+      color: 'rgb(0,0,0)',
     }
   },
 
   computed: {
-    ...mapState(useStore, ['dataSets', 'formattedDates']),
+    ...mapState(useStore, ['dataSets', 'formattedDates', 'assetName']),
     assetGraph(): ChartData {
       return {
         labels: this.labels,
         datasets: [
           {
-            label: 'Data One',
-            backgroundColor: '#f87979',
+            label: this.assetName,
+            backgroundColor: this.color,
             data: this.datasets,
           },
         ],
@@ -66,6 +81,9 @@ export default defineComponent({
     },
   },
   watch: {
+    assetName(to) {
+      this.assetName = to
+    },
     dataSets: {
       handler(to) {
         this.datasets = to
