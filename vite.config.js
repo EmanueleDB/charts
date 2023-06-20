@@ -16,6 +16,13 @@ export default defineConfig({
 
   server: {
     port: 8080,
+    proxy: {
+      '/data': {
+        target: 'http://localhost:8080/src/data',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\/data/, ''),
+      },
+    },
   },
   resolve: {
     alias: [

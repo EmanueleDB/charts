@@ -1,11 +1,12 @@
 <template>
   <nav>
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <div class="d-flex h-100 align-items-center">
+      <h3>Spectral Front-End Assignment</h3>
+    </div>
   </nav>
 </template>
 
-<script>
+<script lang="ts">
 export default {
   name: 'Navigation',
 }
@@ -13,7 +14,12 @@ export default {
 
 <style lang="scss">
 nav {
-  height: 50px;
-  background: orange;
+  height: 80px;
+  background: var(--navigation);
+  color: var(--white);
+
+  div {
+    margin-left: 1rem;
+  }
 }
 </style>

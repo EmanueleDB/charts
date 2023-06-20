@@ -4,36 +4,42 @@
       <Navigation />
     </header>
     <main ref="main">
-      <router-view />
+      <div class="row h-100">
+        <div class="col-6">
+          <Sidebar />
+        </div>
+        <div class="col">
+          <testComponent />
+        </div>
+      </div>
     </main>
-    <footer>
-      <Footer />
-    </footer>
   </div>
 </template>
 
-<script>
+<script lang="ts">
+import Sidebar from '@/layouts/Sidebar.vue'
 import Navigation from '@/layouts/Navigation.vue'
-import Footer from '@/layouts/Footer.vue'
+import testComponent from '@/components/Graph/Graph.vue'
 
 export default {
-  components: { Footer, Navigation },
-  mounted() {
-    this.adjustMainHeight()
-    window.addEventListener('resize', this.adjustMainHeight)
-  },
-  beforeUnmount() {
-    window.removeEventListener('resize', this.adjustMainHeight)
-  },
-  methods: {
-    adjustMainHeight() {
-      const headerHeight = this.$refs.header.clientHeight
-      const footerHeight = this.$el.querySelector('footer').clientHeight
-      this.$refs.main.style.minHeight = `calc(100vh - ${
-        headerHeight + footerHeight
-      }px)`
-    },
-  },
+  components: { Navigation, Sidebar, testComponent },
+
+  // mounted() {
+  //   this.adjustMainHeight()
+  //   window.addEventListener('resize', this.adjustMainHeight)
+  // },
+  // beforeUnmount() {
+  //   window.removeEventListener('resize', this.adjustMainHeight)
+  // },
+  // methods: {
+  //   adjustMainHeight() {
+  //     const headerHeight = this.$refs.header.clientHeight
+  //     const footerHeight = this.$el.querySelector('footer').clientHeight
+  //     this.$refs.main.style.minHeight = `calc(100vh - ${
+  //       headerHeight + footerHeight
+  //     }px)`
+  //   },
+  // },
 }
 </script>
 
@@ -47,16 +53,8 @@ header {
 }
 
 main {
-  margin-top: 50px;
-  background: aquamarine;
-}
-
-footer {
-  position: fixed;
-  height: 100px;
-  background: blueviolet;
-  bottom: 0;
-  left: 0;
-  right: 0;
+  margin-top: 80px;
+  height: 100vh;
+  background: var(--white);
 }
 </style>
