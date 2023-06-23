@@ -1,4 +1,3 @@
-// src/utils.ts
 import { Asset, Measurement } from './types/types'
 
 export function buildAssetTree(data: Asset[]) {

@@ -1,4 +1,3 @@
-// src/store.ts
 import { defineStore } from 'pinia'
 import { fetchAssets } from '@/data/assets'
 import { fetchMeasurements } from '@/data/measurements'
