@@ -66,13 +66,13 @@ export default defineComponent({
   },
 
   computed: {
-    ...mapState(useStore, ['dataSets', 'formattedDates', 'assetName']),
+    ...mapState(useStore, ['dataSets', 'formattedDates']),
     assetGraph(): ChartData {
       return {
         labels: this.labels,
         datasets: [
           {
-            label: this.assetName,
+            label: useStore().assetName,
             backgroundColor: this.color,
             data: this.datasets,
           },
@@ -80,10 +80,8 @@ export default defineComponent({
       }
     },
   },
+
   watch: {
-    assetName(to) {
-      this.assetName = to
-    },
     dataSets: {
       handler(to) {
         this.datasets = to
@@ -99,7 +97,3 @@ export default defineComponent({
   },
 })
 </script>
-
-<style lang="scss">
-@import 'style';
-</style>
