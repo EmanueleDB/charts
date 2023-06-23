@@ -32,7 +32,7 @@ export function buildAssetTree(data: Asset[]) {
 export function getMeasurementsRecursively(
   assetId: number,
   assets: Asset[],
-  measurements: any[]
+  measurements: { assetId: number; measurements: Measurement }[]
 ): Measurement | null {
   const asset = assets.find((item: { id: number }) => item.id === assetId)
 
