@@ -1,7 +1,7 @@
 <template>
   <nav>
     <div class="d-flex h-100 align-items-center">
-      <h3>Spectral Front-End Assignment</h3>
+      <h3>Charts</h3>
     </div>
   </nav>
 </template>
